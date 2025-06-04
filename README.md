@@ -1,35 +1,56 @@
-# Email Judge Agent
+# Email Judge Agent 📧⚖️
 
-A news reporter agent built with the Agno framework that delivers news with NYC flair and enthusiasm!
+An intelligent email classification agent specifically designed for computer science students! This AI-powered tool automatically analyzes your emails and determines whether they're **IMPORTANT** or **JUNK**, helping you focus on what matters for your academic and career success.
 
-## Setup
+## 🎯 What It Does
+
+The Email Judge Agent:
+- ✅ **Classifies emails** as IMPORTANT or JUNK based on CS student needs
+- ✅ **Summarizes important emails** with actionable next steps
+- ✅ **Filters out spam** and irrelevant promotional content
+- ✅ **Focuses on academic and career opportunities** relevant to CS students
+
+## 🧠 Classification System
+
+### 📌 **IMPORTANT Emails Include:**
+- Academic announcements (grades, assignments, deadlines, course updates)
+- Career opportunities (internships, job postings, career fairs)
+- Technical conferences, workshops, or seminars
+- Research opportunities or lab positions
+- Scholarship and funding opportunities
+- University administrative messages (registration, tuition, housing)
+- Tech industry news from legitimate sources
+- Professional networking requests
+- Project collaboration invitations
+- Technical learning resources
+
+### 🗑️ **JUNK Emails Include:**
+- Generic promotional content
+- Unrelated product advertisements
+- Spam or phishing attempts
+- Non-academic newsletters
+- Social media notifications (unless academic/professional)
+- Generic marketing emails
+- Get-rich-quick schemes
+
+## 🚀 Quick Start
 
 ### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Environment Configuration
-Create a `.env` file in the project root with your OpenAI API key:
-
+### 2. Set Up Environment Variables
+Create a `.env` file in the project root:
 ```bash
 # .env
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-**Optional environment variables:**
-```bash
-# Set default model (already specified in code as gpt-4o)
-OPENAI_MODEL=gpt-4o
-
-# OpenAI Organization ID (if using organization account)
-OPENAI_ORG_ID=your_org_id_here
-```
-
 ### 3. Get Your OpenAI API Key
-1. Go to [OpenAI's API platform](https://platform.openai.com/)
+1. Visit [OpenAI's API platform](https://platform.openai.com/)
 2. Sign up or log in to your account
-3. Navigate to API Keys section
+3. Navigate to the API Keys section
 4. Create a new secret key
 5. Copy the key and add it to your `.env` file
 
@@ -38,25 +59,72 @@ OPENAI_ORG_ID=your_org_id_here
 python emailjudge.py
 ```
 
-## Usage
+## 📝 Usage Examples
 
-The agent comes with several example prompts you can try:
-1. "What's the latest food trend taking over Brooklyn?"
-2. "Tell me about a peculiar incident on the subway today"
-3. "What's the scoop on the newest rooftop garden in Manhattan?"
-4. "Report on an unusual traffic jam caused by escaped zoo animals"
-5. "Cover a flash mob wedding proposal at Grand Central"
+The script includes two example emails to demonstrate the classification system:
 
-## Features
+1. **CS Department Internship Fair** → Classified as **📌 IMPORTANT**
+   - Provides summary and action items (register by deadline, prepare resumes)
 
-- 🗽 NYC-style news reporting with personality
-- 📰 Attention-grabbing headlines with emoji
-- 🎭 Mix of witty comedy and sharp journalism
-- 🏙️ Local NYC references and slang
-- ✅ Fact verification while maintaining energy
+2. **Get-Rich-Quick Spam Email** → Classified as **🗑️ JUNK**
+   - Explains why it's irrelevant to CS students
 
-## Requirements
+### Custom Usage
+To analyze your own emails, modify the `agent.print_response()` call in the script with your email content:
 
-- Python 3.7+
-- OpenAI API key
-- Internet connection for API calls 
+```python
+agent.print_response("""
+Subject: Your Email Subject Here
+
+Your email content here...
+""", stream=True)
+```
+
+## 📋 Response Format
+
+For each email, the agent provides:
+
+1. **Classification**: Clear 📌 IMPORTANT or 🗑️ JUNK label
+2. **Reasoning**: Brief explanation of the classification decision
+3. **Summary & Action Items**: (For IMPORTANT emails only) Concise summary with specific next steps
+
+## 🛠️ Technical Stack
+
+- **AI Model**: OpenAI GPT-4o
+- **Framework**: Agno Agent Framework
+- **Environment Management**: python-dotenv
+- **Language**: Python 3.7+
+
+## 📁 Project Structure
+
+```
+EmailJudge/
+├── emailjudge.py          # Main application file
+├── requirements.txt       # Python dependencies
+├── .env                   # Environment variables (create this)
+├── .gitignore            # Git ignore rules
+└── README.md             # This file
+```
+
+## 🔒 Security
+
+- Your OpenAI API key is stored securely in the `.env` file
+- The `.env` file is excluded from Git via `.gitignore`
+- Never commit API keys to version control
+
+## 🎓 Perfect for CS Students
+
+This tool is specifically tuned for computer science students and understands:
+- Academic deadlines and course requirements
+- Tech industry opportunities and networking
+- Research and lab positions
+- Coding bootcamps vs. legitimate educational content
+- Professional development in the tech field
+
+## 🤝 Contributing
+
+Feel free to customize the classification criteria in the agent instructions to better match your specific needs and interests!
+
+---
+
+**Stay focused on what matters for your CS journey!** 🎯📚 
