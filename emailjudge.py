@@ -79,13 +79,13 @@ if st.button("Classify Email", type="primary"):
                 # Get the agent instance
                 agent = initialize_agent()
                 
-                # Get the response
-                response = agent.print_response(email_content)
+                # Get the response using run() instead of print_response()
+                response = agent.run(email_content)
                 
                 # Display the response in a nice format
                 st.markdown("---")
                 st.markdown("### Analysis Result")
-                st.markdown(response)
+                st.markdown(response.content)
                 
             except Exception as e:
                 st.error(f"An error occurred: {str(e)}")
